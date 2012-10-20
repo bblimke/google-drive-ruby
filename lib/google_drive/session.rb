@@ -354,7 +354,7 @@ module GoogleDrive
               "X-Upload-Content-Length" => total_bytes.to_s(),
           }
           initial_full_url = concat_url(url, params[:convert] ? "?convert=true" : "?convert=false")
-          initial_full_url = concat_url(url, params[:ocr] ? "?ocr=true" : "?ocr=false")
+          initial_full_url = concat_url(initial_full_url, params[:ocr] ? "?ocr=true" : "?ocr=false")
           initial_response = request(method, initial_full_url,
               :header => default_initial_header.merge(params[:header] || {}),
               :data => initial_xml,
